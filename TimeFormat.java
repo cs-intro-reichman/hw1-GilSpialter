@@ -12,6 +12,23 @@ public class TimeFormat {
 		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-        // Replace this comment with the rest of your code
-	}
+
+		int hh;
+		String meridian;
+		if (hours <= 12) {				//if morn: merdian is AM, and hours stay the same
+				hh = hours;
+				meridian = "AM";
+			}
+		else { 							//if evening: merdian is PM, and hours must be subtracted by 12
+				hh = hours-12;
+				meridian = "PM";
+			}
+
+		System.out.print(hh+":");
+
+		if (minutes < 10) {				//if single digits, must add a "0".
+			System.out.print(0);	
+			}
+		System.out.println(minutes+" "+meridian);
+	}  
 }
